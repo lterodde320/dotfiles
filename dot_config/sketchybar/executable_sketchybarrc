@@ -1,0 +1,73 @@
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+##### Bar Appearance #####
+sketchybar --bar position=top height=30 blur_radius=30 color=0x00ffffff
+
+# Add custom AeroSpace events
+sketchybar --add event aerospace_workspace_change
+sketchybar --add item aerospace hidden
+
+##### Changing Defaults #####
+default=(
+  padding_left=5
+  padding_right=5
+  icon.font="MesloLGL Nerd Font:Bold:14.0"
+  label.font="MesloLGL Nerd Font:Bold:14.0"
+  icon.color=0xffffffff
+  label.color=0xffffffff
+  icon.padding_left=4
+  icon.padding_right=4
+  label.padding_left=4
+  label.padding_right=4
+)
+sketchybar --default "${default[@]}"
+
+##### AeroSpace Workspaces #####
+SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9")
+
+for sid in $(seq 1 9); do
+  index=$((sid-1))
+  space=(
+    icon="${SPACE_ICONS[$index]}"
+    background.corner_radius=5
+    background.height=25
+    label.drawing=off
+    script="$PLUGIN_DIR/space.sh"
+    click_script="aerospace workspace $sid"
+  )
+  sketchybar --add item "aspace.$sid" left \
+             --set "aspace.$sid" "${space[@]}" \
+             --subscribe "aspace.$sid" aerospace_workspace_change window_created window_destroyed front_app_switched
+done
+
+# Trigger once so highlight updates immediately on startup
+sketchybar --trigger aerospace_workspace_change
+
+##### Right Side Items #####
+sketchybar --add item clock right \
+           --set clock update_freq=10 icon= script="$PLUGIN_DIR/clock.sh"
+
+sketchybar  --add item temp right \
+            --set temp update_freq=900 \
+                  script="$PLUGIN_DIR/temp.sh"  
+
+sketchybar --add item volume right \
+           --set volume script="$PLUGIN_DIR/volume.sh" \
+           --subscribe volume volume_change
+
+sketchybar --add item battery right \
+           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+           --subscribe battery system_woke power_source_change
+
+sketchybar  --add item slack right \
+            --set slack \
+                  update_freq=180 \
+                  script="$PLUGIN_DIR/slack.sh" \
+                  background.padding_left=15  \
+                  icon.font.size=18 \
+           --subscribe slack system_woke
+
+       
+
+##### Initial Update #####
+sketchybar --update

@@ -1,0 +1,83 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    "bottom_dock_layout": "full",
+    "use_system_window_tabs": false,
+    "vim_mode": false,
+    "cursor_blink": true,
+    "cursor_shape": "bar",
+    "agent": {
+        "default_profile": "write",
+        "default_model": {
+            "provider": "copilot_chat",
+            "model": "gpt-5-mini"
+        },
+        "model_parameters": []
+    },
+    "icon_theme": "Catppuccin Macchiato",
+    "ssh_connections": [
+        {
+            "host": "code-server",
+            "args": [],
+            "port_forwards": [
+                { "local_port": 3004, "remote_port": 3004 },
+                { "local_port": 3005, "remote_port": 3005 }
+            ],
+            "projects": [
+                {
+                    "paths": ["/home/leandro"]
+                },
+                {
+                    "paths": ["/home/leandro/topspot/topspot"]
+                }
+            ]
+        }
+    ],
+    "terminal": {
+        "font_family": "Monaspace Neon",
+        "font_fallbacks": ["MesloLGL Nerd Font", "monospace"]
+    },
+    "node": {
+        "npm_path": "npm"
+    },
+    "git": {
+        "inline_blame": {
+            "enabled": true
+        }
+    },
+    "base_keymap": "VSCode",
+    "tab_bar": {
+        "show": false
+    },
+    "minimap": {
+        "show": "never"
+    },
+    "max_tabs": 1,
+    "autosave": "on_window_change",
+    "buffer_font_fallbacks": ["MesloLGL Nerd Font", "Monaspace Neon"],
+    "buffer_font_family": "monospace",
+    "toolbar": { "breadcrumbs": false, "quick_actions": false },
+    "tab_size": 4,
+    "ui_font_size": 16,
+    "ui_font_weight": 800,
+    "buffer_font_size": 13.0,
+    "theme": {
+        "mode": "dark",
+        "light": "Gruvbox Dark Soft",
+        "dark": "Tokyo Night"
+    },
+    "project_panel": {
+        "entry_spacing": "standard"
+    },
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false
+    },
+    "formatter": "prettier"
+}

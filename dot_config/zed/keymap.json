@@ -1,0 +1,55 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+    {
+        "bindings": {
+            "cmd-shift-l": "git_panel::OpenMenu",
+            "cmd-,": "workspace::ActivatePaneLeft",
+            "cmd-.": "workspace::ActivatePaneRight",
+            "ctrl-cmd-right": "pane::GoForward",
+            "ctrl-cmd-left": "pane::GoBack",
+            "cmd-g": "go_to_line::Toggle",
+            "cmd-:": "pane::SplitRight",
+            "cmd-;": "pane::SplitLeft",
+            "alt-up": "editor::MoveToEnclosingBracket"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "cmd-shift-l": "git_panel::OpenMenu"
+        }
+    },
+    {
+        "context": "Editor && vim_mode == insert",
+        "bindings": {
+            // "j k": "vim::NormalBefore"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "cmd-shift-l": "git_panel::OpenMenu"
+        }
+    },
+    {
+        "bindings": {
+            "cmd-_": "dev::OpenZeta2ContextView"
+        }
+    },
+    {
+        "bindings": {
+            "alt-shift-down": "vim::NextMethodStart"
+        }
+    },
+    {
+        "bindings": {
+            "alt-shift-up": "vim::PreviousMethodStart"
+        }
+    }
+]

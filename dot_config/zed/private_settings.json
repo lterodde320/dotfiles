@@ -7,6 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "context_servers": {
+        "prisma-mcp": {
+            "source": "extension",
+            "enabled": true,
+            "settings": {}
+        }
+    },
+    "file_finder": {
+        "modal_max_width": "xlarge"
+    },
     "bottom_dock_layout": "full",
     "use_system_window_tabs": false,
     "vim_mode": false,
@@ -25,16 +35,31 @@
         {
             "host": "code-server",
             "args": [],
-            "port_forwards": [
-                { "local_port": 3004, "remote_port": 3004 },
-                { "local_port": 3005, "remote_port": 3005 }
-            ],
             "projects": [
                 {
-                    "paths": ["/home/leandro"]
+                    "paths": [
+                        "/home/leandro"
+                    ]
                 },
                 {
-                    "paths": ["/home/leandro/topspot/topspot"]
+                    "paths": [
+                        "/home/leandro/spotlight/./"
+                    ]
+                },
+                {
+                    "paths": [
+                        "/home/leandro/topspot/topspot"
+                    ]
+                }
+            ],
+            "port_forwards": [
+                {
+                    "local_port": 3004,
+                    "remote_port": 3004
+                },
+                {
+                    "local_port": 3005,
+                    "remote_port": 3005
                 }
             ]
         }
@@ -73,6 +98,7 @@
         "dark": "Tokyo Night"
     },
     "project_panel": {
+        "hide_hidden": true,
         "entry_spacing": "standard"
     },
     "telemetry": {

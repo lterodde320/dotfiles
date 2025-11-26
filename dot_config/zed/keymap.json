@@ -8,7 +8,6 @@
 [
     {
         "bindings": {
-            "cmd-shift-l": "git_panel::OpenMenu",
             "cmd-,": "workspace::ActivatePaneLeft",
             "cmd-.": "workspace::ActivatePaneRight",
             "ctrl-cmd-right": "pane::GoForward",
@@ -20,21 +19,9 @@
         }
     },
     {
-        "context": "Workspace",
-        "bindings": {
-            "cmd-shift-l": "git_panel::OpenMenu"
-        }
-    },
-    {
         "context": "Editor && vim_mode == insert",
         "bindings": {
             // "j k": "vim::NormalBefore"
-        }
-    },
-    {
-        "context": "Editor",
-        "bindings": {
-            "cmd-shift-l": "git_panel::OpenMenu"
         }
     },
     {
@@ -50,6 +37,36 @@
     {
         "bindings": {
             "alt-shift-up": "vim::PreviousMethodStart"
+        }
+    },
+    {
+        "context": "GitPanel",
+        "bindings": {
+            "cmd-p": "git::Push"
+        }
+    },
+    {
+        "context": "GitPanel",
+        "bindings": {
+            "cmd-shift-p": "git::ForcePush"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "cmd-p": "file_finder::Toggle"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "cmd-p": null
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "cmd-shift-l": "git_panel::ToggleFocus"
         }
     }
 ]
